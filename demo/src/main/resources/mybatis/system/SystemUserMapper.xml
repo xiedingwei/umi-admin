@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.project.system.mapper.SystemUserMapper">
+  <resultMap id="BaseResultMap" type="com.example.demo.project.system.entity.muti.SystemUserMuti">
+    <!--@mbg.generated-->
+    <!--@Table `system_user`-->
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="avatar" jdbcType="VARCHAR" property="avatar" />
+    <result column="role_id" jdbcType="BIGINT" property="roleId" />
+    <result column="role_name" jdbcType="BIGINT" property="roleName" />
+    <result column="create_user" jdbcType="VARCHAR" property="createUser" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+      username, `password`, chinese_name, avatar
+  </sql>
+  <select id="getPageList" resultMap="BaseResultMap" parameterType="com.example.demo.project.system.entity.SystemUser">
+    SELECT a.*,b.name as role_name from system_user a
+    LEFT JOIN system_role b on a.role_id=b.id
+    <where>
+      <if test="username != null and username != ''">
+        <bind name="username" value="'%' + username + '%'"/>
+        or a.username like #{username,jdbcType=VARCHAR}
+      </if>
+      <if test="name != null and name != ''">
+        <bind name="name" value="'%' + name + '%'"/>
+        or a.name like #{name,jdbcType=VARCHAR}
+      </if>
+      <if test="roleId != null and roleId != ''">
+        <bind name="roleId" value="'%' + roleId + '%'"/>
+        or a.role_id like #{roleId,jdbcType=BIGINT}
+      </if>
+      <if test="createUser != null and createUser != ''">
+        <bind name="createUser" value="'%' + createUser + '%'"/>
+        or a.create_user like #{createUser,jdbcType=VARCHAR}
+      </if>
+    </where>
+    order by a.create_time desc
+  </select>
+</mapper>

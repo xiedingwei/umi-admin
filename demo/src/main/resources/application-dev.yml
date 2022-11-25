@@ -1,0 +1,13 @@
+server:
+  port: 7000
+files:
+  upload:
+    path: C:/Users/谢定伟/Desktop/水果超市实训/demo/files/
+  down:
+    path: http://localhost:7000/file/
+img:
+  upload:
+    path: C:/Users/谢定伟/Desktop/水果超市实训/demo/target/classes/static/imgs/
+  see:
+    path: http://localhost:7000/imgs/
+

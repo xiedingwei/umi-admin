@@ -1,0 +1,47 @@
+@-webkit-keyframes spin {
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+/**
+  * Traditional
+  *
+  * @author jh3y
+*/
+.traditionalLoading::before {
+  -webkit-animation: spin 0.5s infinite linear;
+  animation: spin 0.5s infinite linear;
+  border-radius: 100%;
+  -webkit-box-shadow: inset -2px 0 0 0 blue;
+  box-shadow: inset -2px 0 0 0 blue;
+  content: '';
+  height: 25px;
+  position: absolute;
+  width: 25px;
+}
+.traditionalLoading {
+  transform: translate(-12.5px);
+}
+.loadingText {
+  margin-top: 30px;
+  font-size: 12px;
+}
+.loadingBody {
+  position: fixed;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  z-index: 2000;
+  transform: translate(0, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}

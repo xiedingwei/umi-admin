@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.project.system.mapper.SystemMenuMapper">
+  <resultMap id="BaseResultMap" type="com.example.demo.project.system.entity.SystemMenu">
+    <!--@mbg.generated-->
+    <!--@Table system_menu-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="path" jdbcType="VARCHAR" property="path" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="icon" jdbcType="VARCHAR" property="icon" />
+    <result column="parent_id" jdbcType="BIGINT" property="parentId" />
+    <result column="create_user" jdbcType="VARCHAR" property="createUser" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="is_delete" jdbcType="INTEGER" property="isDelete" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, `path`, `name`, icon, parent_id, create_user, create_time, is_delete
+  </sql>
+    <select id="getSystemMenu" resultMap="BaseResultMap" parameterType="long">
+      SELECT b.* from system_role_menu a
+      LEFT JOIN system_menu b on a.menu_id=b.id
+      LEFT JOIN system_role c on a.role_id=c.id
+      where a.role_id = #{roleId,jdbcType=BIGINT} and c.is_start=1
+    </select>
+</mapper>

@@ -1,0 +1,17 @@
+server:
+  port: 8082
+spring:
+  web:
+    resources:
+      static-locations: file:/home/demo/static/
+files:
+  upload:
+    path: /home/demo/files/
+  down:
+    path: http://193.112.118.108:8082/file/
+img:
+  upload:
+    path: /home/demo/static/imgs/
+  see:
+    path: http://193.112.118.108:8082/imgs/
+

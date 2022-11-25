@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.project.system.mapper.SystemRoleMapper">
+  <resultMap id="BaseResultMap" type="com.example.demo.project.system.entity.SystemRole">
+    <!--@mbg.generated-->
+    <!--@Table system_role-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="describe" jdbcType="VARCHAR" property="describe" />
+    <result column="is_start" jdbcType="INTEGER" property="isStart" />
+    <result column="create_user" jdbcType="VARCHAR" property="createUser" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="is_delete" jdbcType="INTEGER" property="isDelete" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, `name`, `describe`, is_start, create_user, create_time, is_delete
+  </sql>
+</mapper>
